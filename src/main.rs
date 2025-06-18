@@ -84,7 +84,9 @@ where
 }
 
 fn main() -> std::io::Result<()> {
-    writer_results_to_file(5, generate_users, "user_ids_list.txt", "users_collection.txt")?;
-    writer_results_to_file(10, generate_jobs, "job_ids_list.txt", "jobs_collection.txt")?;
+    std::fs::create_dir_all("output")?;
+
+    writer_results_to_file(5, generate_users, "output/user_ids_list.txt", "output/users_collection.txt")?;
+    writer_results_to_file(10, generate_jobs, "output/job_ids_list.txt", "output/jobs_collection.txt")?;
     Ok(())
 }

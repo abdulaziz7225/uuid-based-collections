@@ -1,0 +1,45 @@
+UUID: c8dc9feb-13aa-4671-a5f3-5c012a881712
+User {
+    id: c8dc9feb-13aa-4671-a5f3-5c012a881712,
+    name: "Liza Murphy",
+    age: 41,
+    profession: "biologist",
+    country: "Saint Vincent and the Grenadines",
+}
+
+UUID: 61687c77-c6a6-4ac4-9bfd-dcaf70719475
+User {
+    id: 61687c77-c6a6-4ac4-9bfd-dcaf70719475,
+    name: "Lexus Morissette",
+    age: 39,
+    profession: "human resources",
+    country: "Kuwait",
+}
+
+UUID: 8bbd6ebb-e02c-4b2c-b6ad-ab5e3b292f79
+User {
+    id: 8bbd6ebb-e02c-4b2c-b6ad-ab5e3b292f79,
+    name: "Jazlyn Ankunding",
+    age: 53,
+    profession: "advocate",
+    country: "New Caledonia",
+}
+
+UUID: a2c8343a-20c1-4f50-bedf-31c1a58189ea
+User {
+    id: a2c8343a-20c1-4f50-bedf-31c1a58189ea,
+    name: "Rowena Dach",
+    age: 46,
+    profession: "statistician",
+    country: "Romania",
+}
+
+UUID: 8a7c5e64-14ad-4b8e-a41b-bd742078a4f8
+User {
+    id: 8a7c5e64-14ad-4b8e-a41b-bd742078a4f8,
+    name: "Lloyd Waters",
+    age: 29,
+    profession: "actor",
+    country: "Madagascar",
+}
+
