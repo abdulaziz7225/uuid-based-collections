@@ -1,0 +1,10 @@
+[package]
+name = "uuid_based_collections"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+fake = { version = "4.3.0", features = ["derive"] }
+rand = { version = "0.9.1", features = ["small_rng"] }
+uuid = { version = "1.17.0", features = ["v4"] }
+
