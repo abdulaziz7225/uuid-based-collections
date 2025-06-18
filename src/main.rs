@@ -51,52 +51,40 @@ fn generate_jobs(job_ids_list: &Vec<Uuid>, jobs_collection: &mut HashMap<Uuid, J
     }
 }
 
+fn writer_results_to_file<T>(
+    count: u32,
+    generate_collection: fn(&Vec<Uuid>, &mut HashMap<Uuid, T>),
+    ids_file_name: &str,
+    collection_file_name: &str,
+) -> std::io::Result<()>
+where
+    T: std::fmt::Debug,
+{
+    let mut ids_list: Vec<Uuid> = Vec::new();
+    generate_uuids(count, &mut ids_list);
+
+    let mut collection = HashMap::new();
+    generate_collection(&ids_list, &mut collection);
+
+    // Write UUIDs
+    let ids_file = File::create(ids_file_name)?;
+    let mut ids_writer = BufWriter::new(ids_file);
+    for (index, uuid) in ids_list.iter().enumerate() {
+        writeln!(ids_writer, "UUID {index}: {uuid}")?;
+    }
+
+    let collection_file = File::create(collection_file_name)?;
+    let mut collection_writer = BufWriter::new(collection_file);
+    for (uuid, collection_instance) in &collection {
+        writeln!(collection_writer, "UUID: {uuid}")?;
+        writeln!(collection_writer, "{collection_instance:#?}\n")?;
+    }
+
+    Ok(())
+}
+
 fn main() -> std::io::Result<()> {
-    let users_count: u32 = 5;
-
-    let mut user_ids_list: Vec<Uuid> = Vec::new();
-    generate_uuids(users_count, &mut user_ids_list);
-
-    let mut users_collection = HashMap::new();
-    generate_users(&user_ids_list, &mut users_collection);
-
-    // === Write Users to File ===
-    let user_ids_file = File::create("user_ids_list.txt")?;
-    let mut users_writer = BufWriter::new(user_ids_file);
-    for (index, uuid) in user_ids_list.iter().enumerate() {
-        writeln!(users_writer, "UUID {index}: {uuid}")?;
-    }
-
-    let users_collection_file = File::create("users_collection.txt")?;
-    let mut users_writer = BufWriter::new(users_collection_file);
-    for (user_id, user) in &users_collection {
-        writeln!(users_writer, "User ID: {user_id}")?;
-        writeln!(users_writer, "{user:#?}\n")?;
-    }
-
-    // Experiment with jobs
-    let jobs_count: u32 = 10;
-
-    let mut job_ids_list: Vec<Uuid> = Vec::new();
-    generate_uuids(jobs_count, &mut job_ids_list);
-
-    let mut jobs_collection = HashMap::new();
-    generate_jobs(&job_ids_list, &mut jobs_collection);
-
-    // === Write Jobs to File ===
-    let job_ids_file = File::create("job_ids_list.txt")?;
-    let mut jobs_writer = BufWriter::new(job_ids_file);
-
-    for (index, uuid) in job_ids_list.iter().enumerate() {
-        writeln!(jobs_writer, "UUID {index}: {uuid}")?;
-    }
-
-    let jobs_collection_file = File::create("jobs_collection.txt")?;
-    let mut jobs_writer = BufWriter::new(jobs_collection_file);
-
-    for (job_id, job) in &jobs_collection {
-        writeln!(jobs_writer, "Job ID: {job_id}")?;
-        writeln!(jobs_writer, "{job:#?}\n")?;
-    }
+    writer_results_to_file(5, generate_users, "user_ids_list.txt", "users_collection.txt")?;
+    writer_results_to_file(10, generate_jobs, "job_ids_list.txt", "jobs_collection.txt")?;
     Ok(())
 }

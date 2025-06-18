@@ -1,0 +1,45 @@
+UUID: 953271a2-f7cb-4c3e-bcf2-679faa90646a
+User {
+    id: 953271a2-f7cb-4c3e-bcf2-679faa90646a,
+    name: "Chance Wehner",
+    age: 30,
+    profession: "attorney at law",
+    country: "Honduras",
+}
+
+UUID: 9138e15c-8376-4f87-ac4e-64e4b88c2b00
+User {
+    id: 9138e15c-8376-4f87-ac4e-64e4b88c2b00,
+    name: "Rita Kreiger",
+    age: 41,
+    profession: "interpreter",
+    country: "Ecuador",
+}
+
+UUID: ad3d2de4-3b4a-4a73-bb40-c17d66c3a30d
+User {
+    id: ad3d2de4-3b4a-4a73-bb40-c17d66c3a30d,
+    name: "Madison Schroeder",
+    age: 28,
+    profession: "astronomer",
+    country: "India",
+}
+
+UUID: ee7ba523-8d5d-443b-a612-4c42491b240c
+User {
+    id: ee7ba523-8d5d-443b-a612-4c42491b240c,
+    name: "Hilario Von",
+    age: 20,
+    profession: "designer",
+    country: "Tunisia",
+}
+
+UUID: ec8afda6-9fa9-4979-85ee-b7f2c402d683
+User {
+    id: ec8afda6-9fa9-4979-85ee-b7f2c402d683,
+    name: "Simeon Wehner",
+    age: 35,
+    profession: "judge",
+    country: "Guinea-Bissau",
+}
+
